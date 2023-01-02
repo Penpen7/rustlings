@@ -39,13 +39,16 @@ fn result_with_list() -> Result<Vec<i32>, DivisionError> {
         .into_iter()
         .map(|n| divide(n, 27).unwrap())
         .collect())
-} // Complete the function and return a value of the correct type so the test passes. Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)] fn list_of_results() -> Vec<Result<i32, DivisionError>> { let numbers = vec![27, 297, 38502, 81]; numbers.into_iter().map(|n| divide(n, 27)).collect()
+} // Complete the function and return a value of the correct type so the test passes. Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)]
+fn list_of_results() -> Vec<Result<i32, DivisionError>> {
+    let numbers = vec![27, 297, 38502, 81];
+    numbers.into_iter().map(|n| divide(n, 27)).collect()
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
-    let division_results = numbers.into_iter().map(|n| divide(n, 27));
+
     #[test]
     fn test_success() {
         assert_eq!(divide(81, 9), Ok(9));
